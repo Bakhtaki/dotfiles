@@ -39,16 +39,8 @@ Plug 'dkarter/bullets.vim'
 Plug 'wellle/context.vim'
 Plug 'antoinemadec/FixCursorHold.nvim'
 
-
-"My plugins
-Plug 'wakatime/vim-wakatime'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-
 " Functionalities - Python
-Plug 'psf/black'
-", { 'branch': 'stable' }
+Plug 'psf/black', { 'branch': 'stable' }
 Plug 'heavenshell/vim-pydocstring'
 
 " Aesthetics - Colorschemes
@@ -60,6 +52,10 @@ Plug 'yuttie/hydrangea-vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-journal'
+
+" My Custom Setting
+Plug 'wakatime/vim-wakatime'
+
 
 call plug#end()
 
@@ -167,6 +163,20 @@ autocmd BufLeave term://* stopinsert
 let g:python3_host_prog = '~/.config/nvim/env/bin/python3'
 let g:pydocstring_doq_path = '~/.config/nvim/env/bin/doq'
 
+""" Core plugin configuration (lua)
+lua << EOF
+servers = {
+    'pyright',
+    --'tsserver', -- uncomment for typescript. See https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md for other language servers
+}
+require('treesitter-config')
+require('nvim-cmp-config')
+require('lspconfig-config')
+require('telescope-config')
+require('lualine-config')
+require('nvim-tree-config')
+require('diagnostics')
+EOF
 
 """ Custom Functions
 
@@ -177,6 +187,7 @@ function! TrimWhitespace()
     call winrestview(l:save)
 endfunction
 
+""" Custom Mappings (vim) (lua custom mappings are within individual lua config files)
 
 " Core
 let mapleader=","
@@ -212,5 +223,3 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fc <cmd>Telescope colorscheme<cr>
 nnoremap <leader>f/ <cmd>Telescope current_buffer_fuzzy_find<cr>
 
-"My Custom Settings
-let g:loaded_perl_provider = 0

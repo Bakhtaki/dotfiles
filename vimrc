@@ -53,6 +53,10 @@ call vundle#begin()
     Plugin 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
     Plugin 'scrooloose/syntastic'               " Syntax checking plugin for Vim
 
+    "--------------------------My Custom Setting--------------------
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'dracula/dracula-theme'
+    Plugin 'wakatime/vim-wakatime'
 call vundle#end()                           " required
 filetype on
 filetype plugin on
@@ -64,7 +68,7 @@ filetype plugin indent on
 syntax enable                               " syntax highlight
 
 set t_Co=256                                " set 256 colors
-colorscheme 1989                             " set color scheme
+colorscheme PaperColor                         " set color scheme
 
 set number                                  " show line numbers
 set ruler
@@ -117,9 +121,9 @@ set hlsearch	                            " highlight search results
 "" AirLine settings
 "=====================================================
 let g:airline_theme='bubblegum'
-"let g:airline#extensions#tabline#enabled=0
+let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='default'
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=0
 
 "=====================================================
 "" TagBar settings
@@ -240,6 +244,3 @@ nmap <leader>g :YcmCompleter GoTo<CR>
 nmap <leader>d :YcmCompleter GoToDefinition<CR>
 
 " My Plugins
-Plugin 'wakatime/vim-wakatime'
-Plugin 'dracula/dracula-theme'
-
