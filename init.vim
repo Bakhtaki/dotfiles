@@ -55,6 +55,7 @@ Plug 'junegunn/vim-journal'
 
 " My Custom Setting
 Plug 'wakatime/vim-wakatime'
+Plug 'majutsushi/tagbar'
 
 
 call plug#end()
@@ -223,3 +224,6 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fc <cmd>Telescope colorscheme<cr>
 nnoremap <leader>f/ <cmd>Telescope current_buffer_fuzzy_find<cr>
 
+
+" Tagbar 
+nmap <F8> :TagbarToggle<CR>
