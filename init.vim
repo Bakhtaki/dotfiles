@@ -56,7 +56,8 @@ Plug 'junegunn/vim-journal'
 " My Custom Setting
 Plug 'wakatime/vim-wakatime'
 Plug 'majutsushi/tagbar'
-
+imap <silent><script><expr> <C-J> copilot#Accept("\CR")
+let g:copilot_no_tab_map = v:true
 
 call plug#end()
 
@@ -224,6 +225,13 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fc <cmd>Telescope colorscheme<cr>
 nnoremap <leader>f/ <cmd>Telescope current_buffer_fuzzy_find<cr>
 
+"=====================================================
+"" TagBar settings
+"=====================================================
+let g:tagbar_autofocus=1
+let g:tagbar_width=60
+"autocmd BufEnter *.py :call tagbar#autoopen(0)
 
-" Tagbar 
 nmap <F8> :TagbarToggle<CR>
+
+
