@@ -1,0 +1,100 @@
+# Set the default editor to nvim
+set editor=vim
+
+# Set the from address and real name
+set from= <Your Email>
+set realname= <Your Nick Name>
+
+# Set the IMAP and SMTP server addresses
+set imap_user= <Imap account>
+set imap_pass= <Password>
+set smtp_url=smtp://Your user@smtp.server.net:587/
+set smtp_pass=<password>
+
+# Set the mailbox type to IMAP and the mailbox location to the root folder
+set folder=imaps://mail.<Your Domain Name>/
+set spoolfile=+INBOX
+
+# Set the SSL/TLS options
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
+# Set the default charset
+set charset=utf-8
+
+# Show attachments inline instead of as separate files
+set mime_forward=yes
+set include=yes
+
+# Set the header cache size to 1MB to speed up performance
+set header_cache=~/.mutt/cache/headers
+
+# Set the key bindings for moving between messages
+macro index,pager j  <down>
+macro index,pager k  <up>
+macro index,pager gg <top>
+macro index,pager G  <bottom>
+
+# Enable the sidebar and set the sidebar width
+set sidebar_visible=yes
+set sidebar_width=20
+
+# Color Scheme
+color normal white black
+color hdrdefault cyan black
+color attachment yellow black
+color indicator brightred black
+color quoted yellow black
+color signature brightgreen black
+color error brightred black
+color message green black
+color search brightgreen black
+
+# Folder Hooks
+folder-hook . 'set imap_fetch_tags="!seen"'
+folder-hook INBOX 'set imap_fetch_tags="seen"'
+
+# Sending Attachments
+macro index,pager a "<attach-file><return>" "Attach a file to the current message"
+
+# External Editor
+set edit_headers=yes
+set use_from=yes
+
+# Sender Addresses
+set use_envelope_from=yes
+
+# Index Format
+set index_format="%4C %Z %{%b %d %R} %-15.15F | %{%d/%m/%y} %-20.20s | %-40.40f %s"
+
+# Date Format
+set date_format="%a, %d %b %Y %H:%M:%S %z"
+
+# Advanced Configuration
+
+# Set the pager format
+set pager_format="%4C %Z %{%b %d %R} %-15.15F (%s) %s\n\n%t\n"
+
+# Set the sidebar sort method and format
+set sidebar_sort_method=alpha
+set sidebar_format="%B %D"
+
+
+# Automatically save sent messages in the Sent mailbox
+set record="imaps://mail.<Your Domain>/Sent"
+
+# Save drafts in the Drafts mailbox
+set postponed="imaps://mail.<Your Domain>/Drafts"
+
+# Highlight URLs in messages and enable URL launching
+auto_view text/html
+alternative_order text/plain text/html
+set mailcap_path=~/.mutt/mailcap
+
+# Set the default wrap length
+set wrap=80
+
+
+# Set the number of lines to show in the pager
+set pager_index_lines=5
+
