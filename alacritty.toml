@@ -1,0 +1,489 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator
+
+# Live config reload (changes require restart)
+live_config_reload = true
+
+# Visual Bell
+# Any time the BEL code is received, Alacritty "rings" the visual bell.
+[bell]
+animation = "EaseOutExpo"
+color = "0xffffff"
+duration = 0
+
+# Color settings
+[colors]
+# When true, bold text is drawn using the bright variant of colors.
+draw_bold_text_with_bright_colors = true
+
+# Bright colors
+[colors.bright]
+black = "0x5d5d5d"
+blue = "0x26b3ff"
+cyan = "0x0ff5ed"
+green = "0x89ff52"
+magenta = "0xe69bff"
+red = "0xfd7688"
+white = "0xffffff"
+yellow = "0xffd437"
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+cursor = "0x00ff00"
+text = "0xcfd8d3"
+
+# Normal colors
+[colors.normal]
+black = "0x545454"
+blue = "0x59a1ff"
+cyan = "0x0ed9d2"
+green = "0x9fd656"
+magenta = "0xc891ff"
+red = "0xfd5f6f"
+white = "0xcfd8d3"
+yellow = "0xf7be13"
+
+# Default colors
+[colors.primary]
+background = "0x101010"
+foreground = "0xcfd8d3"
+
+# Cursor settings
+[cursor]
+style = "Beam" # Cursor style (Block, Underline, Beam)
+unfocused_hollow = true # Render as a hollow box when window is not focused
+
+# Debugging settings
+[debug]
+log_level = "OFF"
+persistent_logging = false
+print_events = false
+render_timer = false
+
+# Font configuration (changes require restart)
+[font]
+size = 15 # Point size of the font
+
+# The bold font face
+[font.bold]
+family = "GoMono Nerd Font"
+style = "Regular"
+
+# Glyph offset settings
+[font.glyph_offset]
+x = 0
+y = 0
+
+# The italic font face
+[font.italic]
+family = "GoMono Nerd Font"
+style = "Regular"
+
+# The normal (roman) font face
+[font.normal]
+family = "GoMono Nerd Font"
+style = "Regular"
+
+# Offset settings (extra space around each character)
+[font.offset]
+x = 0
+y = 1
+
+# Scrolling settings
+[scrolling]
+history = 100000 # How many lines of scrollback to keep
+multiplier = 3 # Number of lines the viewport moves for every line scrolled
+
+# Selection settings
+[selection]
+save_to_clipboard = true # Copy selected text to clipboard
+semantic_escape_chars = ",│`|:\"' ()[]{}<>$" # Characters to treat as separate words
+
+# Shell settings
+[shell]
+program = "/usr/bin/bash" # Path to the shell
+
+# Window settings
+[window]
+decorations = "full" # Window decorations (full, none, transparent, buttonless)
+dynamic_padding = false # Spread additional padding evenly around terminal content
+opacity = 0.74 # Background opacity
+startup_mode = "Maximized" # Startup mode (Windowed, Maximized, Fullscreen)
+
+# Window dimensions
+[window.dimensions]
+columns = 148 # Number of columns
+lines = 40    # Number of lines
+
+# Window padding
+[window.padding]
+x = 1 # Horizontal padding in pixels
+y = 1 # Vertical padding in pixels
+
+# Mouse settings
+[mouse]
+hide_when_typing = true # Hide cursor when typing
+
+# Mouse bindings
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+# Key bindings
+# Specify key, modifiers, and action or chars for each binding
+
+# Paste from clipboard
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Command"
+
+# Copy to clipboard
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Command"
+
+# Quit Alacritty
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "Command"
+
+# Spawn a new instance of Alacritty
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Command"
+
+# Toggle fullscreen mode
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "Return"
+mods = "Command"
+
+# Send "Home" key in application cursor mode
+[[keyboard.bindings]]
+chars = "\u001BOH"
+key = "Home"
+mode = "AppCursor"
+
+# Send "Home" key in normal cursor mode
+[[keyboard.bindings]]
+chars = "\u001B[H"
+key = "Home"
+mode = "~AppCursor"
+
+# Send "End" key in application cursor mode
+[[keyboard.bindings]]
+chars = "\u001BOF"
+key = "End"
+mode = "AppCursor"
+
+# Send "End" key in normal cursor mode
+[[keyboard.bindings]]
+chars = "\u001B[F"
+key = "End"
+mode = "~AppCursor"
+
+# Increase font size
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Command"
+
+# Decrease font size
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Command"
+
+# Reset font size to default
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Minus"
+mods = "Command|Shift"
+
+# Scroll one page up
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+mods = "Shift"
+
+# Send "Page Up" with Control modifier
+[[keyboard.bindings]]
+chars = "\u001B[5;5~"
+key = "PageUp"
+mods = "Control"
+
+# Send "Page Up" key
+[[keyboard.bindings]]
+chars = "\u001B[5~"
+key = "PageUp"
+
+# Scroll one page down
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+mods = "Shift"
+
+# Send "Page Down" with Control modifier
+[[keyboard.bindings]]
+chars = "\u001B[6;5~"
+key = "PageDown"
+mods = "Control"
+
+# Send "Page Down" key
+[[keyboard.bindings]]
+chars = "\u001B[6~"
+key = "PageDown"
+
+# Move cursor left with Shift modifier
+[[keyboard.bindings]]
+chars = "\u001B[1;2D"
+key = "Left"
+mods = "Shift"
+
+# Move cursor left with Control modifier
+[[keyboard.bindings]]
+chars = "\u001B[1;5D"
+key = "Left"
+mods = "Control"
+
+# Move cursor left with Alt modifier
+[[keyboard.bindings]]
+chars = "\u001B[1;3D"
+key = "Left"
+mods = "Alt"
+
+# Send left arrow key in normal cursor mode
+[[keyboard.bindings]]
+chars = "\u001B[D"
+key = "Left"
+mode = "~AppCursor"
+
+# Send left arrow key in application cursor mode
+[[keyboard.bindings]]
+chars = "\u001BOD"
+key = "Left"
+mode = "AppCursor"
+
+# Move cursor right with Shift modifier
+[[keyboard.bindings]]
+chars = "\u001B[1;2C"
+key = "Right"
+mods = "Shift"
+
+# Move cursor right with Control modifier
+[[keyboard.bindings]]
+chars = "\u001B[1;5C"
+key = "Right"
+mods = "Control"
+
+# Move cursor right with Alt modifier
+[[keyboard.bindings]]
+chars = "\u001B[1;3C"
+key = "Right"
+mods = "Alt"
+
+# Send right arrow key in normal cursor mode
+[[keyboard.bindings]]
+chars = "\u001B[C"
+key = "Right"
+mode = "~AppCursor"
+
+# Send right arrow key in application cursor mode
+[[keyboard.bindings]]
+chars = "\u001BOC"
+key = "Right"
+mode = "AppCursor"
+
+# Move cursor up with Shift modifier
+[[keyboard.bindings]]
+chars = "\u001B[1;2A"
+key = "Up"
+mods = "Shift"
+
+# Move cursor up with Control modifier
+[[keyboard.bindings]]
+chars = "\u001B[1;5A"
+key = "Up"
+mods = "Control"
+
+# Move cursor up with Alt modifier
+[[keyboard.bindings]]
+chars = "\u001B[1;3A"
+key = "Up"
+mods = "Alt"
+
+# Send up arrow key in normal cursor mode
+[[keyboard.bindings]]
+chars = "\u001B[A"
+key = "Up"
+mode = "~AppCursor"
+
+# Send up arrow key in application cursor mode
+[[keyboard.bindings]]
+chars = "\u001BOA"
+key = "Up"
+mode = "AppCursor"
+
+# Move cursor down with Shift modifier
+[[keyboard.bindings]]
+chars = "\u001B[1;2B"
+key = "Down"
+mods = "Shift"
+
+# Move cursor down with Control modifier
+[[keyboard.bindings]]
+chars = "\u001B[1;5B"
+key = "Down"
+mods = "Control"
+
+# Move cursor down with Alt modifier
+[[keyboard.bindings]]
+chars = "\u001B[1;3B"
+key = "Down"
+mods = "Alt"
+
+# Send down arrow key in normal cursor mode
+[[keyboard.bindings]]
+chars = "\u001B[B"
+key = "Down"
+mode = "~AppCursor"
+
+# Send down arrow key in application cursor mode
+[[keyboard.bindings]]
+chars = "\u001BOB"
+key = "Down"
+mode = "AppCursor"
+
+# Shift + Tab
+[[keyboard.bindings]]
+chars = "\u001B[Z"
+key = "Tab"
+mods = "Shift"
+
+# Function keys F1-F12 with escape sequences
+# F1 key - Sends the escape sequence which is recognized by terminal applications as F1 key press
+[[keyboard.bindings]]
+chars = "\u001BOP"
+key = "F1"
+
+# F2 key - Sends the escape sequence typically recognized as F2 key press
+[[keyboard.bindings]]
+chars = "\u001BOQ"
+key = "F2"
+
+# F3 key - Sends the escape sequence typically recognized as F3 key press
+[[keyboard.bindings]]
+chars = "\u001BOR"
+key = "F3"
+
+# F4 key - Sends the escape sequence typically recognized as F4 key press
+[[keyboard.bindings]]
+chars = "\u001BOS"
+key = "F4"
+
+# F5 key - Sends the escape sequence typically recognized as F5 key press
+[[keyboard.bindings]]
+chars = "\u001B[15~"
+key = "F5"
+
+# F6 key - Sends the escape sequence typically recognized as F6 key press
+[[keyboard.bindings]]
+chars = "\u001B[17~"
+key = "F6"
+
+# F7 key - Sends the escape sequence typically recognized as F7 key press
+[[keyboard.bindings]]
+chars = "\u001B[18~"
+key = "F7"
+
+# F8 key - Sends the escape sequence typically recognized as F8 key press
+[[keyboard.bindings]]
+chars = "\u001B[19~"
+key = "F8"
+
+# F9 key - Sends the escape sequence typically recognized as F9 key press
+[[keyboard.bindings]]
+chars = "\u001B[20~"
+key = "F9"
+
+# F10 key - Sends the escape sequence typically recognized as F10 key press
+[[keyboard.bindings]]
+chars = "\u001B[21~"
+key = "F10"
+
+# F11 key - Sends the escape sequence typically recognized as F11 key press
+[[keyboard.bindings]]
+chars = "\u001B[23~"
+key = "F11"
+
+# F12 key - Sends the escape sequence typically recognized as F12 key press
+[[keyboard.bindings]]
+chars = "\u001B[24~"
+key = "F12"
+
+# Backspace key
+[[keyboard.bindings]]
+chars = "\u007F"
+key = "Back"
+
+# Backspace with Alt modifier
+[[keyboard.bindings]]
+chars = "\u001B\u007F"
+key = "Back"
+mods = "Alt"
+
+# Insert key
+[[keyboard.bindings]]
+chars = "\u001B[2~"
+key = "Insert"
+
+# Delete key
+[[keyboard.bindings]]
+chars = "\u001B[3~"
+key = "Delete"
+
+# Custom tmux bindings with Command modifier
+# Close tab (kill pane/window)
+[[keyboard.bindings]]
+chars = "\u0002&"
+key = "W"
+mods = "Command"
+
+# Create new tab
+[[keyboard.bindings]]
+chars = "\u0002c"
+key = "T"
+mods = "Command"
+
+# Select next tab
+[[keyboard.bindings]]
+chars = "\u0002n"
+key = "RBracket"
+mods = "Command|Shift"
+
+# Select previous tab
+[[keyboard.bindings]]
+chars = "\u0002p"
+key = "LBracket"
+mods = "Command|Shift"
+
+# Select next pane
+[[keyboard.bindings]]
+chars = "\u0002o"
+key = "RBracket"
+mods = "Command"
+
+# Select last (previously used) pane
+[[keyboard.bindings]]
+chars = "\u0002;"
+key = "LBracket"
+mods = "Command"
+
+# Search (upwards) in tmux
+[[keyboard.bindings]]
+chars = "\u0002/"
+key = "F"
+mods = "Command"
