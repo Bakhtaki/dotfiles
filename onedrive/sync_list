@@ -1,0 +1,37 @@
+# sync_list supports comments
+#
+# The ordering of entries is highly recommended - exclusions before inclusions
+#
+# Exclude temp folders under Documents
+!Documents/temp*
+# Exclude my secret data
+#!/Secret_data/*
+#
+# Include my Backup folder
+# Backup
+# Include Documents folder
+# Documents/
+# Include all PDF documents
+# Documents/*.pdf
+# Include this single document
+# Documents/latest_report.docx
+# Include all Work/Project directories
+# Work/Project*
+# notes.txt
+# Include /Blender in the ~OneDrive root but not if elsewhere
+# /Blender
+# Include these names if they match any file or folder
+# Cinema Soc
+# Codes
+# Textbooks
+# Year 2
+# Exclude
+!/video/*
+!/videos/*
+
+#Include
+Personal Documents
+Persons
+Shiva
+Technical
+University
